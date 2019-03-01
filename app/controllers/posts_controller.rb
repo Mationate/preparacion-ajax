@@ -1,10 +1,15 @@
 class PostsController < ApplicationController
 
-  before_action :set_post, only: [:destroy]
+  before_action :set_post, only: [:edit, :update, :destroy]
   def index
     @posts = Post.order('id DESC')
     @post = Post.new
   end
+
+  def show
+    respond_to :js
+  end
+  
 
   def create
     @post = Post.new(post_params)
@@ -16,6 +21,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    respond_to :js
+  end
+
+  def update
+    if @post.update(post_params)
+      respond_to :js
+    else
+      redirect_to root_path, alert: 'Error al actualizar el recurso'
+    end
+  end
+  
   def destroy
     @post.destroy
     respond_to :js

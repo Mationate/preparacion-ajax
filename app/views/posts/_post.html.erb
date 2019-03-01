@@ -1,5 +1,7 @@
 <div class="post" id="<%= post.id %>">
   <h3 class="post_title"><%= post.title %></h4>
   <p><%= post.content %></p>
-  <%= link_to 'Eliminar', post_path(post), class: 'btn btn-danger', data: {remote: true, method: :delete} %>
+  <%= link_to 'Ver', post_path(post), class:'btn btn-outline-primary', data:{remote: true} %>
+  <%= link_to 'Editar', edit_post_path(post), class:'btn btn-outline-success', data: {remote: true} %>
+  <%= link_to 'Eliminar', post_path(post), class: 'btn btn-outline-danger', data: {remote: true, method: :delete} %>
 </div>

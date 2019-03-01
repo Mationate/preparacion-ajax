@@ -1,10 +1,14 @@
 <h1>INDEX ! </h1>
-<h4>Crear un post ! </h4>
+<h1>Crear un post ! </h1>
 
 <%= render 'shared/form', post: @post %>
-
+<br>
+<br>
+<h1>Posts:</h1>
 
 <div class="post_container">
     <%= render @posts %>
 </div>
+
+<%= render 'shared/edit_modal' %>
 

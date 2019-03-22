@@ -1,13 +1,16 @@
 class PostsController < ApplicationController
 
-  before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy, :show]
   def index
     @posts = Post.order('id DESC')
     @post = Post.new
   end
 
   def show
+    @comment = Comment.new
+    @comments = @post.comments.order('id DESC')
     respond_to :js
+
   end
   
 

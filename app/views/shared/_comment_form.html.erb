@@ -1,0 +1,8 @@
+<%= form_with(model: comment) do |f| %>
+  <%= f.hidden_field :post_id, value: post_id %>
+  <div class="form-group">
+    <%= f.label :content, "Escribe aquí tu comentario" %>
+    <%= f.text_field :content, class:'form-control comment-field' %>
+  </div>
+  <%= f.submit 'Comentar', class:'btn btn-primary btn-sm' %>
+<% end %>

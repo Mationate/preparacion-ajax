@@ -1,0 +1,5 @@
+$('.modal-title').text('<%= @post.title %>');
+$('.modal-body').html("<p class='post-content'><%= @post.content %></p>");
+$('.modal-footer').html("<div class='<%= @post.id %>'><%= j render 'shared/comment_form', {comment: @comment, post_id: @post.id} %></div>");
+$('.modal-footer').append("<div id='comments-container'><%= j render @comments %></div>");
+$('.modal').modal('show');
